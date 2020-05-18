@@ -15,4 +15,9 @@ class Area extends Model
     {
         return $this->belongsToMany(Aluno::class);
     }
+
+    public function Post()
+    {
+        return $this->belongsToMany(Post::class);
+    }
 }

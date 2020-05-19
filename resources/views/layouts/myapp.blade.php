@@ -40,9 +40,9 @@
                 <div class="col-md-3">
                     @include('layouts.menulateral')
                 </div>
-                <div class="col-md">
-                    @yield('content')
-                </div>
+                <div class="col-md">                    
+                        @yield('content')                    
+                </div>                
             </div>
         </div>
     </div>

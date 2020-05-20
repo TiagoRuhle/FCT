@@ -41,7 +41,7 @@
                     @include('layouts.menulateral')
                 </div>
                 <div class="col-md">                    
-                        @yield('content')                    
+                    @yield('content')                    
                 </div>                
             </div>
         </div>

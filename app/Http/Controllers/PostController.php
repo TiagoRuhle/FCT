@@ -20,6 +20,13 @@ class PostController extends Controller
         return view('posts.index')->with(compact('posts'));
     }
 
+    public function indexpessoal()
+    {
+        //
+        $posts=Post::where('user_id', auth()->id)->paginate(10);
+        return view('posts.indexpessoal')->with(compact('posts'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

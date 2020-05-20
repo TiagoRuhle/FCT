@@ -30,6 +30,7 @@
     <link href="{{ asset('edmin/bootstrap/css/bootstrap-responsive.min.css') }}" rel="stylesheet">
     <link href="{{ asset('edmin/css/theme.css') }}" rel="stylesheet">
     <link href="{{ asset('edmin/images/icons/css/font-awesome.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/myapp.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -38,9 +39,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
+                    <br>
                     @include('layouts.menulateral')
                 </div>
-                <div class="col-md">                    
+                <div class="col-md">  
+                    <br>                  
                     @yield('content')                    
                 </div>                
             </div>

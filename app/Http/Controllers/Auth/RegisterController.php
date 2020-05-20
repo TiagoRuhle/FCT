@@ -54,7 +54,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'image' => ['required'],
+            'image' => ['sometimes', 'image', 'mimes:jpg,jpeg,png', 'max:7000'],
         ]);
     }
 
@@ -72,8 +72,16 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        return Foto::create([
-            'image' => $data['image']
+        return Foto::create([            
+            $image= new Foto;
+            if($data->has('image')){
+                $img = $data->file('imagem');
+                $imgname = time() . "." . $img->getClientOriginalExtension();
+                $path = public_path("/imagens/");
+                $img->move($path, $imgname);
+                $image->imagem = $imgname;
+            }
+            $image->save();
         ]);
     }
 }

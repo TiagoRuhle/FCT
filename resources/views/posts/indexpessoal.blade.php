@@ -59,7 +59,7 @@
                 </tr> 
             @empty
                 <tr>
-                    <td colspan="4">Ainda não existem posts</td>
+                    <td colspan="4">Ainda não criou nenhum post</td>
                 </tr>
             @endforelse
             

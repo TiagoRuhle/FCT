@@ -14,7 +14,7 @@
         <textarea class="form-control" id="corpo" rows="9" name="corpo"></textarea>
       </div>
       <div class="form-group">
-        <label for="area">  <p class="font-weight-bold">Area</p> <br><small>Use o CTRL para selecionar várias</small> Old {{old('area[]')}}</label>
+        <label for="area">  <p class="font-weight-bold">Area</p> <br><small>Use o CTRL para selecionar várias</small>{{old('area[]')}}</label>
             <select multiple class="form-control" name="area[]">
                 @foreach ($areas as $area)
                     <option value="{{$area->id}}">{{$area->area}}</option>

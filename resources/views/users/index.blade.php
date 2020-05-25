@@ -1,17 +1,19 @@
 @extends('layouts.myapp')
 @section('content')
     <div class="row">
-        <div class="col-md-10">
-            <h4>hjklç</h4>
+        <div class="col-md-10">            
+            <!--caso haja dados mostrar os dados, senão não mostrar-->
+            @yield('contentuser')
         </div>
         <div class="col-md">
-            <a href="{{ route('users.create') }}"><p class="btn btn-block btn-primary">Register</p></a>
+            <button id="teste">Registar</button>
         </div>
-    </div>
-    <div class="row">        
-        @yield('contentuser')
-        <div class="col-md">
-            <h1>hjk</h1>
-        </div>        
-    </div>
+    </div>    
+    <div id="teste" class="modal">        
+        <div class="modal-content">     
+            <!--Seria usado para escolher entre aluno e empresa-->          
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>            
+        </div>            
+    </div> 
 @endsection

@@ -18,6 +18,7 @@
     <script src="{{ asset('edmin/scripts/flot/jquery.flot.resize.js') }}" type="text/javascript"></script>
     <script src="{{ asset('edmin/scripts/datatables/jquery.dataTables.js') }}" type="text/javascript"></script>
     <script src="{{ asset('edmin/scripts/common.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/myapp.js') }}" type="text/javascript"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

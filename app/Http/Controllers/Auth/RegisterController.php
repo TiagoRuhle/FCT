@@ -71,17 +71,6 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-
-        return Foto::create([            
-            $image= new Foto;
-            if($data->has('image')){
-                $img = $data->file('imagem');
-                $imgname = time() . "." . $img->getClientOriginalExtension();
-                $path = public_path("/imagens/");
-                $img->move($path, $imgname);
-                $image->imagem = $imgname;
-            }
-            $image->save();
-        ]);
-    }
+   }
+        
 }

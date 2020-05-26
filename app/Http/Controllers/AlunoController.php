@@ -14,6 +14,7 @@ class AlunoController extends Controller
     public function index()
     {
         //
+        return view('users.alunos.index');
     }
 
     /**
@@ -24,6 +25,7 @@ class AlunoController extends Controller
     public function create()
     {
         //
+        return view('users.alunos.create');
     }
 
     /**

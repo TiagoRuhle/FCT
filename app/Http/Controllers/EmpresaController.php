@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Area;
-use App\Post;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class EmpresaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,15 +14,7 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts=Post::paginate(10);
-        return view('posts.index')->with(compact('posts'));
-    }
-
-    public function indexpessoal()
-    {
-        //
-        $posts=Post::where('user_id', auth()->user()->id)->paginate(10);
-        return view('posts.indexpessoal')->with(compact('posts'));
+        return view('users.empresas.index');
     }
 
     /**
@@ -35,7 +25,6 @@ class PostController extends Controller
     public function create()
     {
         //
-        return view('posts.create',['areas'=>Area::orderBy('descricao')->get()]);
     }
 
     /**
@@ -47,22 +36,6 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
-        $post = new Post($this->val_post_add());
-        $post->user_id = auth()->id();
-        $post->save();
-
-        $post->area()->attach(request('area'));
-
-        return redirect (route('posts.index'));
-    }
-
-    protected function val_post_add()
-    {
-        return request()->validate([
-            'titulo' => 'required|max:100|unique:posts',            
-            'corpo' => 'required',            
-            'area' => 'exists:area,id'
-        ]);
     }
 
     /**
@@ -71,10 +44,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
         //
-        return view('posts.show')->with(compact('post'));
     }
 
     /**
@@ -83,10 +55,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
         //
-        return view('posts.edit');
     }
 
     /**

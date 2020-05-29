@@ -17,7 +17,7 @@ class AlunoController extends Controller
     {
         //
         $localizacoes = Localizacao::all();
-        return view('users.alunos.index');
+        return view('users.alunos.index')->with(compact('localizacao'));
     }
 
     /**

@@ -32,7 +32,10 @@
     </select>
     <label for="localizacao">Localização</label>
     <select name="localizacao" id="localizacao">
-        <!--se possivel ter dados da bd-->        
+        <!--select com as localizações da bd--> 
+        @foreach ($localizacoes as $localizacao)
+             <option value="{{$localizacao->id}}">{{$localizacao->localizacao}}</div>
+        @endforeach       
     </select>
     <!--campo usado para recolher uma fotografia do aluno-->
     <div class="form-group">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Aluno;
+use App\Localizacao;
 use Illuminate\Http\Request;
 
 class AlunoController extends Controller
@@ -15,6 +16,7 @@ class AlunoController extends Controller
     public function index()
     {
         //
+        $localizacoes = Localizacao::all();
         return view('users.alunos.index');
     }
 

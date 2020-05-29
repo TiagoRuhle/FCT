@@ -29,3 +29,4 @@ Route::get('/indexpessoal', 'PostController@indexpessoal')->name('posts.indexpes
 Route::resource('users', 'UserController');
 Route::resource('alunos', 'AlunoController');
 Route::resource('empresas', 'EmpresaController');
+Route::resource('escolas', 'EscolaController');

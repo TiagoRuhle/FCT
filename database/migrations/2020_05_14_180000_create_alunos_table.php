@@ -19,15 +19,15 @@ class CreateAlunosTable extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('tipotrabalho_id')->unsigned();
             $table->bigInteger('localizacao_id')->unsigned();
-            $table->string('contatoAluno');
-            $table->date('dtNascimento');
-            $table->string('nomeAluno');
+            $table->string('contato');
+            $table->date('dtNascimento');            
+            $table->string('foto')->default('imagens/defaultuser.png');
             $table->timestamps();
 
             $table->foreign('estadoaluno_id')->references('id')->on('estadosalunos')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('tipotrabalho_id')->references('id')->on('tipostrabalhos')->onDelete('cascade');
-            $table->foreign('localizacao_id')->references('id')->on('localizacoes')->onDelete('cascade');
+            $table->foreign('localizacao_id')->references('id')->on('localizacaos')->onDelete('cascade');
         });
     }
 

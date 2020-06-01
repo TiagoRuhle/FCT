@@ -30,3 +30,4 @@ Route::resource('users', 'UserController');
 Route::resource('alunos', 'AlunoController');
 Route::resource('empresas', 'EmpresaController');
 Route::resource('escolas', 'EscolaController');
+Route::get('/sendemail', 'PostController@sendemail')->name('posts.sendemail');

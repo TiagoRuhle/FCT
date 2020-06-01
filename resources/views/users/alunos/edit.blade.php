@@ -7,7 +7,7 @@
         <label for="Nome">Nome</label>
         <input type="text" class="form-control" id="nome" name="nome" value="{{$aluno->nome}}"/>
     </div>
-    
+
     <!--campo usado para recolher o email do aluno-->
     <div class="form-group">
         <label for="contato">Contato</label>
@@ -45,7 +45,7 @@
     <label for="localizacao">Localização</label>
     <select name="localizacao" id="localizacao">
         <!--select com as localizações da bd--> 
-        @foreach ($localizacoes as $localizacao)
+        @foreach ($localizacaos as $localizacao)
              <option value="{{$localizacao->id}}">{{$localizacao->localizacao}}</div>
         @endforeach       
     </select>

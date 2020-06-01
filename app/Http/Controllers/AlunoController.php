@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Aluno;
 use App\Localizacao;
+use App\Area;
 use Illuminate\Http\Request;
 
 class AlunoController extends Controller
@@ -16,8 +17,8 @@ class AlunoController extends Controller
     public function index()
     {
         //
-        $localizacoes = Localizacao::all();
-        return view('users.alunos.index')->with(compact('localizacao'));
+        $localizacaos = Localizacao::all();
+        return view('users.alunos.index')->with(compact('localizacaos'));
     }
 
     /**
@@ -28,7 +29,9 @@ class AlunoController extends Controller
     public function create()
     {
         //
-        return view('users.alunos.create');
+        $localizacaos = Localizacao::all();
+        $areas = Area::all();
+        return view('users.alunos.create')->with(compact('localizacaos','areas'));
     }
 
     /**

@@ -15,10 +15,21 @@
       </div>
       <div class="form-group">
         <label for="area">  <p class="font-weight-bold">Area</p> <br><small>Use o CTRL para selecionar várias</small>{{old('area[]')}}</label>
-            <select multiple class="form-control" name="area[]">
+            <select name="area" id="area" multiple>
+                <!--select com as localizações da bd--> 
                 @foreach ($areas as $area)
-                    <option value="{{$area->id}}">{{$area->area}}</option>
-                @endforeach
+                    <option value="{{$area->id}}">{{$area->descricao}}</div>
+                @endforeach       
+            </select>
+        </div>
+        <!--localização de disponibilidade do aluno-->
+        <div class="form-group">
+            <label for="localizacao">Localização</label>
+            <select name="localizacao" id="localizacao" multiple>
+                <!--select com as localizações da bd--> 
+                @foreach ($localizacaos as $localizacao)
+                    <option value="{{$localizacao->id}}">{{$localizacao->localizacao}}</div>
+                @endforeach       
             </select>
         </div>
       <input type="submit" name="create" id="create"/>

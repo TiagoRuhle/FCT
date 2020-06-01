@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Area;
+use App\Localizacao;
+use App\Mail\SendMail;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PostController extends Controller
 {
@@ -16,6 +19,7 @@ class PostController extends Controller
     public function index()
     {
         //
+        $areas = Area::all();
         $posts=Post::paginate(10);
         return view('posts.index')->with(compact('posts'));
     }
@@ -23,6 +27,7 @@ class PostController extends Controller
     public function indexpessoal()
     {
         //
+        $areas = Area::all();
         $posts=Post::where('user_id', auth()->user()->id)->paginate(10);
         return view('posts.indexpessoal')->with(compact('posts'));
     }
@@ -35,7 +40,9 @@ class PostController extends Controller
     public function create()
     {
         //
-        return view('posts.create',['areas'=>Area::orderBy('descricao')->get()]);
+        $areas = Area::all();
+        $localizacaos = Localizacao::all();
+        return view('posts.create')->with(compact('areas', 'localizacaos'));
     }
 
     /**
@@ -110,5 +117,13 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function sendemail(Request $request)
+    {
+        $data = array('message' => $request->message);
+        /*email que vai receber o email*/
+        Mail::to($request->email)->send(new SendMail($data));
+        return back();
     }
 }

@@ -29,6 +29,7 @@
                 <th scope="col">Titulo</th>                                
                 <th scope="col">Area</th>
                 <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -44,6 +45,7 @@
                     <td class="text-right">
                         <a href="{{route('posts.show',$posts->id)}}" class="btn btn-sm btn-outline-secondary">+</a>
                     </td>
+                    <td><a href="{{ route('posts.sendemail')}}"><i class="menu-icon icon-bullhorn"></i>Send it</a></td>
                 </tr> 
             @empty
                 <tr>

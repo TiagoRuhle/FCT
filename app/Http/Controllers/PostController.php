@@ -54,13 +54,16 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
-        $post = new Post($this->val_post_add());
+        $data=$request->all();
+        $post = new Post($this->val_post_add());        
+        $post->titulo = $data['titulo'];
+        $post->corpo = $data['corpo'];        
         $post->user_id = auth()->id();
         $post->save();
 
         $post->area()->attach(request('area'));
 
-        return redirect (route('posts.index'));
+        return redirect('/posts');
     }
 
     protected function val_post_add()
@@ -90,10 +93,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
         //
-        return view('posts.edit');
+        $post = Post::findOrFail(['id'=>$id])->first();
+        return view('posts.edit')->with(compact('post'));
     }
 
     /**
@@ -117,6 +121,8 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+        Post::where(['id'=>$id])->delete();
+        return redirect("/posts");
     }
 
     public function sendemail(Request $request)

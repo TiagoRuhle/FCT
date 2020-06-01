@@ -14,7 +14,7 @@
         <textarea class="form-control" id="corpo" rows="9" name="corpo"></textarea>
       </div>
       <div class="form-group">
-        <label for="area">  <p class="font-weight-bold">Area</p> <br><small>Use o CTRL para selecionar várias</small>{{old('area[]')}}</label>
+        <label for="area"><p class="font-weight-bold">Area</p> <br><small>Use o CTRL para selecionar várias</small>{{old('area[]')}}</label>
             <select name="area" id="area" multiple>
                 <!--select com as localizações da bd--> 
                 @foreach ($areas as $area)

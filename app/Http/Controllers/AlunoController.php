@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Aluno;
 use App\Localizacao;
 use App\Area;
+use App\Hobbie;
 use Illuminate\Http\Request;
 
 class AlunoController extends Controller
@@ -19,6 +20,20 @@ class AlunoController extends Controller
         //
         $localizacaos = Localizacao::all();
         return view('users.alunos.index')->with(compact('localizacaos'));
+    }
+
+    public function hobbies()
+    {
+        //    
+        return view('users.alunos.hobbies');
+    }
+
+    public function savehobbie(Request $request)
+    {
+        $data = $request->all();
+        $hobbie= new Hobbie();
+        $hobbie->hobbies = $data['hobbies'];
+        return view('users.alunos.hobbies');
     }
 
     /**
@@ -72,6 +87,8 @@ class AlunoController extends Controller
     public function show($id)
     {
         //
+        $aluno = Aluno::findOrFail(['id'=>$id])->first();
+        return view('users.alunos.show')->with(compact('aluno'));
     }
 
     /**
@@ -83,6 +100,7 @@ class AlunoController extends Controller
     public function edit($id)
     {
         //
+        $aluno = Aluno::findOrFail(['id'=>$id])->first();
         return view('users.alunos.edit')->with(compact('aluno'));
     }
 
@@ -105,18 +123,22 @@ class AlunoController extends Controller
             $img->move($path, $imgname);  
             Aluno::where(['id'=>$id])->update([
                 'nome' =>$data['nome'],
+                'contato' =>$data['contato'],
+                //------------------
                 'dtnascimento' =>$data['dtnascimento'],
                 'localizacao' =>$data['localizacao'],
-                'imagem' =>$imgname,
+                'tipotrabalho' =>$data['tipotrabalho'],
+                'imagem' =>$imgname
         ]);          
         }else{    
         Aluno::where(['id'=>$id])->update([
             'nome' =>$data['nome'],
             'dtnascimento' =>$data['dtnascimento'],
+            'contato' =>$data['contato'],
+            //---------------
             'localizacao' =>$data['localizacao'],
             'tipotrabalho' =>$data['tipotrabalho'],
-            'estado' =>$data['estado'],
-            'contato' =>$data['contato'],
+            'estado' =>$data['estado']         
         ]);
         }
         return redirect('/alunos');
@@ -131,5 +153,7 @@ class AlunoController extends Controller
     public function destroy($id)
     {
         //
+        Aluno::where(['id'=>$id])->delete();
+        return redirect("/aluno");
     }
 }

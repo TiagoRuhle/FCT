@@ -24,14 +24,6 @@ class PostController extends Controller
         return view('posts.index')->with(compact('posts'));
     }
 
-    public function indexpessoal()
-    {
-        //
-        $areas = Area::all();
-        $posts=Post::where('user_id', auth()->user()->id)->paginate(10);
-        return view('posts.indexpessoal')->with(compact('posts'));
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -81,9 +73,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
         //
+        $post= Post::findOrFail($id);
         return view('posts.show')->with(compact('post'));
     }
 
@@ -110,6 +103,15 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data = $request->all();
+
+        Post::where(['id'=>$id])->update([  
+            'titulo' =>$data['titulo'],          
+            'corpo' =>$data['corpo']
+            //falta dar update localização e area
+
+        ]);
+        return redirect('/posts');
     }
 
     /**

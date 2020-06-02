@@ -27,10 +27,10 @@
                             <h1 class="textocentro">{{Auth::user()->name}}</h1>
                         </div>
                         <ul class="widget widget-menu unstyled">
-                            <li class="active"><a href="{{ route('users.index')}}"><i class="menu-icon icon-dashboard"></i>Meu Perfil</a></li>
-                            <li><a href="{{ route('posts.indexpessoal')}}"><i class="menu-icon icon-bullhorn"></i>Meus Posts</a></li>
-                            <li><a href="message.html"><i class="menu-icon icon-inbox"></i>Notificações <b class="label green pull-right">11</b></a></li>
-                            <li><a href="task.html"><i class="menu-icon icon-tasks"></i>Tasks <b class="label orange pull-right">19</b></a></li>
+                            <li class="active"><a href="{{ route('posts.index')}}"><i class="menu-icon icon-bullhorn"></i>Posts</a></li>
+                            <li><a href="{{ route('users.index')}}"><i class="menu-icon icon-dashboard"></i>Meu perfil</a></li>
+                            <li><a href="{{ route('alunos.index')}}"><i class="menu-icon icon-dashboard"></i>Perfil de aluno</a></li>
+                            <li><a href="{{ route('alunos.hobbies')}}"><i class="menu-icon icon-dashboard"></i>Meus hobbies</a></li>                            
                             <li><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="menu-icon icon-signout"></i>Logout</a></li>
                         </ul>
                     </div>                

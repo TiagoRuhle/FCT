@@ -32,7 +32,7 @@
             <option value="estudar">Estudar</option>
         </select>
     </div>
-    <!--localização de disponibilidade do aluno-->
+    <!--localização de disponibilidade do aluno   title-->
     <div class="form-group">
         <label for="localizacao">Localização</label>
         <select name="localizacao" id="localizacao" multiple>

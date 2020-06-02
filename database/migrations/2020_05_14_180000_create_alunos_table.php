@@ -29,6 +29,36 @@ class CreateAlunosTable extends Migration
             $table->foreign('tipotrabalho_id')->references('id')->on('tipostrabalhos')->onDelete('cascade');
             $table->foreign('localizacao_id')->references('id')->on('localizacaos')->onDelete('cascade');
         });
+
+        Schema::create('alunos_localizacaos', function (Blueprint $table) {
+            $table->id();                      
+            $table->bigInteger('aluno_id')->unsigned(); 
+            $table->bigInteger('localizacao_id')->unsigned(); 
+            $table->timestamps();
+
+            $table->foreign('aluno_id')->references('id')->on('alunos')->onDelete('cascade');
+            $table->foreign('localizacao_id')->references('id')->on('localizacaos')->onDelete('cascade');
+        });
+
+        Schema::create('alunos_area', function (Blueprint $table) {
+            $table->id();                      
+            $table->bigInteger('aluno_id')->unsigned(); 
+            $table->bigInteger('area_id')->unsigned(); 
+            $table->timestamps();
+
+            $table->foreign('aluno_id')->references('id')->on('alunos')->onDelete('cascade');
+            $table->foreign('area_id')->references('id')->on('areas')->onDelete('cascade');
+        });
+
+        Schema::create('alunos_tipostrabalhos', function (Blueprint $table) {
+            $table->id();                      
+            $table->bigInteger('aluno_id')->unsigned(); 
+            $table->bigInteger('tipotrabalhos_id')->unsigned(); 
+            $table->timestamps();
+
+            $table->foreign('aluno_id')->references('id')->on('alunos')->onDelete('cascade');
+            $table->foreign('tipotrabalhos_id')->references('id')->on('tipostrabalhos')->onDelete('cascade');
+        });
     }
 
     /**

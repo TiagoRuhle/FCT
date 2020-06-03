@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Aluno;
 use App\Area;
 use App\Localizacao;
 use App\Mail\SendMail;
@@ -75,7 +76,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        //        
         $post= Post::findOrFail($id);
         return view('posts.show')->with(compact('post'));
     }

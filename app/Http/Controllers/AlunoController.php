@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Aluno;
 use App\Localizacao;
 use App\Area;
+use App\EstadoAluno;
 use App\Hobbie;
+use App\TipoTrabalho;
 use Illuminate\Http\Request;
 
 class AlunoController extends Controller
@@ -19,7 +21,8 @@ class AlunoController extends Controller
     {
         //
         $localizacaos = Localizacao::all();
-        return view('users.alunos.index')->with(compact('localizacaos'));
+        $aluno = Aluno::findOrFail('user_id', auth()->user()->id)->first();
+        return view('users.alunos.index')->with(compact('localizacaos', 'aluno'));
     }
 
     public function hobbies()
@@ -33,6 +36,7 @@ class AlunoController extends Controller
         $data = $request->all();
         $hobbie= new Hobbie();
         $hobbie->hobbies = $data['hobbies'];
+        $hobbie->save();
         return view('users.alunos.hobbies');
     }
 
@@ -47,6 +51,36 @@ class AlunoController extends Controller
         $localizacaos = Localizacao::all();
         $areas = Area::all();
         return view('users.alunos.create')->with(compact('localizacaos','areas'));
+    }
+
+    public function perfilprocura()
+    {
+        $localizacaos = Localizacao::all();
+        $areas = Area::all();
+        return view('users.alunos.perfilprocura')->with(compact('localizacaos','areas'));
+    }
+
+    public function saveperfilprocura(Request $request)
+    {
+        $data = $request->all();
+
+        $localizacao = new Localizacao();
+        $localizacao->$localizacao = $data['localizacao'];
+        $localizacao->save();
+
+        $area = new Area();
+        $area-> $area= $data['area'];
+        $area->save();
+
+        $tipotrabalho = new TipoTrabalho();
+        $tipotrabalho-> $tipotrabalho = $data['tipotrabalho'];
+        $tipotrabalho->save();
+
+        $estado = new EstadoAluno();
+        $estado-> $estado = $data['estado'];
+        $estado->save();
+
+        return view('users.alunos.perfilprocura');
     }
 
     /**

@@ -30,6 +30,7 @@
                             <li class="active"><a href="{{ route('posts.index')}}"><i class="menu-icon icon-bullhorn"></i>Posts</a></li>
                             <li><a href="{{ route('users.index')}}"><i class="menu-icon icon-dashboard"></i>Meu perfil</a></li>
                             <li><a href="{{ route('alunos.index')}}"><i class="menu-icon icon-dashboard"></i>Perfil de aluno</a></li>
+                            <li><a href="{{ route('alunos.perfilprocura')}}"><i class="menu-icon icon-dashboard"></i>Perfil de procura</a></li>
                             <li><a href="{{ route('alunos.hobbies')}}"><i class="menu-icon icon-dashboard"></i>Meus hobbies</a></li>                            
                             <li><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="menu-icon icon-signout"></i>Logout</a></li>
                         </ul>

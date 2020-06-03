@@ -16,9 +16,6 @@
             <div class="col-md-9">
                 <h1>Posts</h1>
             </div>
-            <div class="col-md-3">
-                <a href="{{route('posts.create')}}" class="btn btn-block btn-primary">Novo Post</a>
-            </div>
         </div>
     @endguest
     <!-- Tabela com posts sobre procura-->

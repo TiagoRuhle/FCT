@@ -26,6 +26,7 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('posts', 'PostController');
 Route::get('/hobbies', 'AlunoController@hobbies')->name('alunos.hobbies');
+Route::get('/perfilprocura', 'AlunoController@perfilprocura')->name('alunos.perfilprocura');
 Route::resource('users', 'UserController');
 Route::resource('alunos', 'AlunoController');
 Route::resource('empresas', 'EmpresaController');

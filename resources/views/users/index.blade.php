@@ -31,7 +31,7 @@
                     </div>
                     <div class="col-md">
                         <div class="card" style="width: 15rem;">
-                            <H2>EMPRESAS</H2>                             
+                            <H2>EMPRESAS</H2>                         
                             <a href="{{route('empresas.index')}}"><img src="{{ asset ('imagens/defaultuser.png')}}" class="card-img-top" alt="..."></a>                   
                           </div>
                     </div>

@@ -8,6 +8,7 @@ use App\Area;
 use App\EstadoAluno;
 use App\Hobbie;
 use App\TipoTrabalho;
+use App\User;
 use Illuminate\Http\Request;
 
 class AlunoController extends Controller
@@ -21,7 +22,7 @@ class AlunoController extends Controller
     {
         //
         $localizacaos = Localizacao::all();
-        $aluno = Aluno::findOrFail('user_id', auth()->user()->id)->first();
+        $aluno = Aluno::where('user_id', auth()->id())->first();
         return view('users.alunos.index')->with(compact('localizacaos', 'aluno'));
     }
 
@@ -96,10 +97,7 @@ class AlunoController extends Controller
         $data= $request->all();
         $aluno= new Aluno;
         $aluno->contato = $data['contato'];
-        $aluno->localizacao = $data['localizacao'];
-        $aluno->dtnascimento = $data['dtnascimento'];
-        $aluno->estado = $data['estado'];
-        $aluno->tipotrabalho=['tipotrabalho'];
+        $aluno->dtnascimento = $data['dtnascimento'];        
         $aluno->user_id = auth()->user()->id;
         if($request->has('imagem')){
             $img = $request->file('imagem');
@@ -109,7 +107,13 @@ class AlunoController extends Controller
             $aluno->imagem = $imgname;
         }
         $aluno->save();
-        return redirect('/alunos');
+
+        //$aluno->tipo()->attach(request('tipo'));
+        User::where(['id'=>auth()->id()])->update([
+            'tipo' =>$data['tipo']
+        ]);
+
+        return view('users.alunos.index');
     }
 
     /**

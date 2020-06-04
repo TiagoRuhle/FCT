@@ -20,10 +20,9 @@ class AlunoController extends Controller
      */
     public function index()
     {
-        //
-        $localizacaos = Localizacao::all();
+        //        
         $aluno = Aluno::where('user_id', auth()->id())->first();
-        return view('users.alunos.index')->with(compact('localizacaos', 'aluno'));
+        return view('users.alunos.index')->with(compact('aluno'));
     }
 
     public function hobbies()

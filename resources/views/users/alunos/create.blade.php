@@ -1,11 +1,17 @@
 @extends('layouts.myapp')
 @section('content')
-    <form method="POST" action="{{url('/alunos')}}">
+    <form method="POST" action="{{url('/alunos')}}" enctype="multipart/form-data">
     @csrf
+
+    <!--campo usado para recolher o nome completo do aluno-->
+    <div class="form-group">
+        <label for="contato">Nome</label>
+        <input type="text" class="form-control" id="nome" name="nome" title="Nome completo"/>
+    </div>
         
     <!--campo usado para recolher o email do aluno-->
     <div class="form-group">
-        <label for="contato">Contato</label>
+        <label for="contato">Contato para contato</label>
         <input type="email" class="form-control" id="contato" name="contato" title="O contato é email"/>
     </div>
 

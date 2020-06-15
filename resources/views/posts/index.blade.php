@@ -7,7 +7,7 @@
        </div>
        <div class="row">
           <div class="alert alert-warning" role="alert">
-            Caso queira criar um post terá de fazer <a href="{{ route('login') }}" class="alert-link">log-in</a>
+            Caso queira ver um post relacionado com as suas preferências de fazer <a href="{{ route('login') }}" class="alert-link">log-in</a>
           </div>
        </div>    
     @else
@@ -21,8 +21,7 @@
     <!-- Tabela com posts sobre procura-->
     <table class="table table-sm table-hover">
         <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
+            <tr>                
                 <th scope="col">Titulo</th>                                
                 <th scope="col">Area</th>
                 <th scope="col"></th>
@@ -31,16 +30,15 @@
         </thead>
         <tbody>
             @forelse ($posts as $post)
-                <tr>
-                    <td>{{$posts->id}}</td>    
-                    <td>{{$posts->titulo}}</td>                                        
+                <tr>                      
+                    <td>{{$post->titulo}}</td>                                        
                     <td>
-                        @foreach ($posts->area as $area)
+                        @foreach ($post->area as $area)
                             <span class="badge badge-success">{{$area->area}}</span>    
                         @endforeach
                     </td>
                     <td class="text-right">
-                        <a href="{{route('posts.show',$posts->id)}}" class="btn btn-sm btn-outline-secondary">+</a>
+                        <a href="{{route('posts.show',$post->id)}}" class="btn btn-sm btn-outline-secondary">+</a>
                     </td>
                     <td><a href="{{ route('posts.sendemail')}}"><i class="menu-icon icon-bullhorn"></i>Send it</a></td>
                 </tr> 

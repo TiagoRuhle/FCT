@@ -19,8 +19,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
-        $areas = Area::all();
+        //        
         $posts=Post::paginate(10);
         return view('posts.index')->with(compact('posts'));
     }

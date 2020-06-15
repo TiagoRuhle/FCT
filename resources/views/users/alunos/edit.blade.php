@@ -1,6 +1,6 @@
 @extends('layouts.myapp')
 @section('content')
-    <form method="POST" action="{{url('/alunos/{{$alunos->id}}')}}">
+    <form method="POST" action="{{url('/alunos/{{$alunos->id}}')}}" enctype="multipart/form-data">
     @csrf
     <!--campo usado para recolher o nome do aluno-->
     <div class="form-group">
@@ -36,10 +36,6 @@
         @foreach ($estados as $estado)
              <option value="{{$estado->id}}">{{$estado->estado}}</div>
         @endforeach 
-        <!--
-        <option value="procura">Procura</option>
-        <option value="emprege">Emprege</option>
-        <option value="estudar">Estudar</option>-->
     </select>
 
     <label for="localizacao">Localização</label>

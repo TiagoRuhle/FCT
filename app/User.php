@@ -46,9 +46,4 @@ class User extends Authenticatable
     {
         return $this->hasOne(Aluno::class);
     }
-
-    public function Foto()
-    {
-        return $this->hasOne(Foto::class);
-    }
 }

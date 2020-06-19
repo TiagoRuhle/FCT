@@ -22,7 +22,10 @@
                         <div class="card">
                             <!--imagem do utilizador-->
                             <!--ir a bd buscar o nome da imagem para inserir a imagem certa, caso nao haja imagem ira ficar a imagem 'defautuser'-->
-                            <img src={{Auth::user()->aluno()->foto}} alt="Image from user" class="avatar">
+                            <?php $user = Auth::user(); 
+                            dd($user->aluno()->foto);?>
+                            
+                            <img src="" alt="Image from user" class="avatar">
                             <!--nome do utilizador-->
                             <h1 class="textocentro">{{Auth::user()->name}}</h1>
                         </div>

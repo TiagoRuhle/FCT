@@ -3,18 +3,18 @@
     @guest
        <!--sem ter o log in feito-->
        <div class="row">
-            <h1>Posts</h1>
+            <h1>trabalhos</h1>
        </div>
        <div class="row">
           <div class="alert alert-warning" role="alert">
-            Caso queira ver um post relacionado com as suas preferências de fazer <a href="{{ route('login') }}" class="alert-link">log-in</a>
+            Caso queira ver um trabalho relacionado com as suas preferências de fazer <a href="{{ route('login') }}" class="alert-link">log-in</a>
           </div>
        </div>    
     @else
         <!--com o log in feito-->
         <div class="row">
             <div class="col-md-9">
-                <h1>Posts</h1>
+                <h1>Trabalhos</h1>
             </div>
         </div>
     @endguest
@@ -38,13 +38,13 @@
                         @endforeach
                     </td>
                     <td class="text-right">
-                        <a href="{{route('posts.show',$post->id)}}" class="btn btn-sm btn-outline-secondary">+</a>
+                        <a href="{{route('trabalhos.show',$post->id)}}" class="btn btn-sm btn-outline-secondary">+</a>
                     </td>
-                    <td><a href="{{ route('posts.sendemail')}}"><i class="menu-icon icon-bullhorn"></i>Send it</a></td>
+                    <td><a href="{{ route('trabalhos.sendemail')}}"><i class="menu-icon icon-bullhorn"></i>Send it</a></td>
                 </tr> 
             @empty
                 <tr>
-                    <td colspan="4">Ainda não existem posts</td>
+                    <td colspan="4">Ainda não existem procuras de trabalho</td>
                 </tr>
             @endforelse
             

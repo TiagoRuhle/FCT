@@ -44,13 +44,13 @@
                         @endforeach
                     </td>
                     <td class="text-right">
-                        <a href="{{route('posts.show',$posts->id)}}" class="btn btn-sm btn-outline-secondary">➕</a>
+                        <a href="{{route('trabalhos.show',$posts->id)}}" class="btn btn-sm btn-outline-secondary">➕</a>
                     </td>
                     <td class="text-right">
-                        <a href="{{route('posts.edit',$posts->id)}}" class="btn btn-sm btn-outline-secondary">✎</a>
+                        <a href="{{route('trabalhos.edit',$posts->id)}}" class="btn btn-sm btn-outline-secondary">✎</a>
                     </td>
                     <td class="text-right">
-                        <form action="/posts/{{$posts->id}}" method="POST">
+                        <form action="/trabalhos/{{$posts->id}}" method="POST">
                             @csrf
                             @method('delete')
                             <input type="submit" class="btn btn-sm btn-danger" value="delete">
@@ -59,7 +59,7 @@
                 </tr> 
             @empty
                 <tr>
-                    <td colspan="4">Ainda não criou nenhum post</td>
+                    <td colspan="4">Ainda não criou nenhuma oferta de trabalho</td>
                 </tr>
             @endforelse
             

@@ -17,8 +17,7 @@ class CreateAlunosTable extends Migration
             $table->id();
             $table->bigInteger('estadoaluno_id')->unsigned();
             $table->bigInteger('user_id')->unsigned()->unique();
-            $table->bigInteger('tipotrabalho_id')->unsigned();
-            $table->bigInteger('localizacao_id')->unsigned();
+            $table->string('nome', 80);
             $table->string('contato');
             $table->date('dtNascimento');            
             $table->string('foto')->default('imagens/defaultuser.png');
@@ -26,8 +25,6 @@ class CreateAlunosTable extends Migration
 
             $table->foreign('estadoaluno_id')->references('id')->on('estadosalunos')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('tipotrabalho_id')->references('id')->on('tipostrabalhos')->onDelete('cascade');
-            $table->foreign('localizacao_id')->references('id')->on('localizacaos')->onDelete('cascade');
         });
 
         Schema::create('alunos_localizacaos', function (Blueprint $table) {
@@ -40,7 +37,7 @@ class CreateAlunosTable extends Migration
             $table->foreign('localizacao_id')->references('id')->on('localizacaos')->onDelete('cascade');
         });
 
-        Schema::create('alunos_area', function (Blueprint $table) {
+        Schema::create('aluno_area', function (Blueprint $table) {
             $table->id();                      
             $table->bigInteger('aluno_id')->unsigned(); 
             $table->bigInteger('area_id')->unsigned(); 

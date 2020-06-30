@@ -22,15 +22,14 @@
                         <div class="card">
                             <!--imagem do utilizador-->
                             <!--ir a bd buscar o nome da imagem para inserir a imagem certa, caso nao haja imagem ira ficar a imagem 'defautuser'-->
-                            <?php $user = Auth::user(); 
-                            dd($user->aluno()->foto);?>
+                            <!--$user = Auth->user(); dd($user->Aluno()->foto);-->
                             
                             <img src="" alt="Image from user" class="avatar">
                             <!--nome do utilizador-->
                             <h1 class="textocentro">{{Auth::user()->name}}</h1>
                         </div>
                         <ul class="widget widget-menu unstyled">
-                            <li class="active"><a href="{{ route('posts.index')}}"><i class="menu-icon icon-bullhorn"></i>Posts</a></li>
+                            <li class="active"><a href="{{ route('trabalhos.index')}}"><i class="menu-icon icon-bullhorn"></i>Trabalhos</a></li>
                             <li><a href="{{ route('users.index')}}"><i class="menu-icon icon-dashboard"></i>Meu perfil</a></li>                            
                             <li><a href="{{ route('alunos.index')}}"><i class="menu-icon icon-user"></i>Perfil de aluno</a></li>
                             <li><a href="{{ route('alunos.perfilprocura')}}"><i class="menu-icon icon-search"></i>Perfil de procura</a></li>

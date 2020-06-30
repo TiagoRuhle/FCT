@@ -18,11 +18,14 @@ class AlunoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Aluno $aluno)
     {
         //        
-        $aluno = Aluno::where('user_id', auth()->id())->first();
+        //$aluno = Aluno::where('user_id', auth()->id())->first();
+        //$aluno = Aluno::findOrFail(auth()->id());
+        //return view('users.alunos.index')->with(compact('aluno'));
         return view('users.alunos.index')->with(compact('aluno'));
+
     }
 
     public function hobbies()
@@ -92,18 +95,21 @@ class AlunoController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'foto' => 'sometimes|image|mimes:jpg,jpeg,png|max:7000'      
+        ]);
             
         $data= $request->all();
         $aluno= new Aluno;
         $aluno->contato = $data['contato'];
         $aluno->dtnascimento = $data['dtnascimento'];        
         $aluno->user_id = auth()->user()->id;
-        if($request->has('imagem')){
-            $img = $request->file('imagem');
+        if($request->has('foto')){
+            $img = $request->file('foto');
             $imgname = time() . "." . $img->getClientOriginalExtension();
             $path = public_path("/imagens/");
             $img->move($path, $imgname);
-            $aluno->imagem = $imgname;
+            $aluno->foto = $imgname;
         }
         $aluno->save();
 

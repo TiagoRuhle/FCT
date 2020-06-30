@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PostController@index');
+Route::get('/', 'TrabalhoController@index');
     
 
 
@@ -31,4 +31,5 @@ Route::resource('users', 'UserController');
 Route::resource('alunos', 'AlunoController');
 Route::resource('empresas', 'EmpresaController');
 Route::resource('escolas', 'EscolaController');
-Route::get('/sendemail', 'PostController@sendemail')->name('posts.sendemail');
+Route::get('/sendemail', 'PostController@sendemail')->name('trabalhos.sendemail');
+Route::resource('trabalhos', 'TrabalhoController');

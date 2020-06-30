@@ -8,7 +8,7 @@ class Aluno extends Model
 {
     //
     protected $fillable = [
-        'contatoAluno','dtNascimento','nomeAluno', 'foto'
+        'contato','dtNascimento','nome', 'foto'
     ];
 
     public function DadosEscola()

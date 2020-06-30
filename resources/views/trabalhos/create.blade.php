@@ -1,6 +1,6 @@
 @extends('layouts.myapp')
 @section('content')    
-    <form method="POST" action="{{url('/post')}}">
+    <form method="POST" action="{{url('/trabalho')}}">
       @csrf
       <div class="form-group">
         <label for="exampleFormControlInput1"><p class="font-weight-bold">Titulo</p></label>

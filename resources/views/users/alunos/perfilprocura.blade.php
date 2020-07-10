@@ -1,6 +1,6 @@
 @extends('layouts.myapp')
 @section('content')
-    <form method="POST" action="{{url('/alunos')}}">
+    <form method="POST" action="{{url('/alunos/saveperfilprocura')}}">
     @csrf
 
     <!--localização de disponibilidade do aluno   title-->
@@ -26,8 +26,8 @@
     <label for="tipotrabalho">Tipo Trabalho</label>
     <select name="tipotrabalho" id="tipotrabalho">
         <option hidden>teste</option>
-        <option value="parttime">Part-Time</option>
-        <option value="fulltime">Full-Time</option>
+        <option value="parttime">Full-Time</option>
+        <option value="fulltime">Part-Time</option>
     </select>
 
     <!--select para saber o estado do aluno, se ele esta a estudar, a trabahar ou a procura de emprego-->

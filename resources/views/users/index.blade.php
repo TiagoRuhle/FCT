@@ -3,7 +3,8 @@
     <div class="row">
         <div class="col-md-10">            
             <!--caso haja dados mostrar os dados, senão não mostrar-->
-            @yield('contentuser')
+            <!--<a href="/alunos/$posts->id}}/edit">...</a>-->                  
+            
         </div>
         <div class="col-md">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">

@@ -101,6 +101,7 @@ class AlunoController extends Controller
             
         $data= $request->all();
         $aluno= new Aluno;
+        $aluno->nome = $data['nome'];
         $aluno->contato = $data['contato'];
         $aluno->dtnascimento = $data['dtnascimento'];        
         $aluno->user_id = auth()->user()->id;

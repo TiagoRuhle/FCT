@@ -1,6 +1,6 @@
 @extends('layouts.myapp')
 @section('content')
-    <form method="POST" action="{{url('/alunos/{{$alunos->id}}')}}" enctype="multipart/form-data">
+    <form method="POST" action="/alunos/{{$alunos->id}}" enctype="multipart/form-data">
     @csrf
     <!--campo usado para recolher o nome do aluno-->
     <div class="form-group">

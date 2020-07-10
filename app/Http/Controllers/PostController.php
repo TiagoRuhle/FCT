@@ -100,7 +100,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, Post $post)
     {
         //
         $data = $request->all();
@@ -108,9 +108,16 @@ class PostController extends Controller
         Post::where(['id'=>$id])->update([  
             'titulo' =>$data['titulo'],          
             'corpo' =>$data['corpo']
+
+            
             //falta dar update localização e area
 
         ]);
+
+        $post->area()->sync(request('area'));
+        $post->area()->sync(request('localizacao'));
+        $post->update();
+
         return redirect('/posts');
     }
 

@@ -15,7 +15,7 @@ class CreateAlunosTable extends Migration
     {
         Schema::create('alunos', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('estadoaluno_id')->unsigned();
+            $table->bigInteger('estadoaluno_id')->unsigned()->nullable();
             $table->bigInteger('user_id')->unsigned()->unique();
             $table->string('nome', 80);
             $table->string('contato');

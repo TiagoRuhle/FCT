@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Aluno;
 
 class UserController extends Controller
 {
@@ -14,7 +15,9 @@ class UserController extends Controller
     public function index()
     {
         //
-        return view('users.index');
+        $aluno = Aluno::findOrFail(['id'=>auth()->user()->id])->first();
+        //$aluno=Aluno::where('user_id',auth()->user()->id);
+        return view('users.index')->with(compact('aluno'));
     }
 
     /**
